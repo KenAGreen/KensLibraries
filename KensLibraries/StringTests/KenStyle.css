@@ -1,0 +1,64 @@
+/*- Tables, their columns and cells */
+td, th {
+    font: 0.9em Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+tr.altrow {
+	background-color: #D9D6E9;
+}
+
+.tbldata {
+	border: 1px solid #3C4B78;
+	border-collapse: collapse;
+    margin-left: 50px;
+    margin-right: 25px;
+}
+.tbldata td {
+	background-color: #FEFFD7;
+	border: 1px solid #3C4B78;
+	text-align: left;
+	padding: 10px 5px;
+}
+.tbldata .centertext {
+	text-align: center;
+}
+.tbldata th {
+	border: 1px solid #004080;
+	background-color: #004080;
+    color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	padding: 7px;
+}
+.tbldata td.rightText {
+    text-align: right;
+}
+
+.tbldata tr.altRow td {
+	background-color: #FFD5D7;
+}
+
+.bold {
+    font-weight: bold;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.centertext {
+    text-align: center;
+}
+.red {
+    color: #EA1B00;
+}
+.blue {
+    color: #00F;
+}
+.hidden {
+    display: none;
+}
+.subHead {
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 1.5em;
+}

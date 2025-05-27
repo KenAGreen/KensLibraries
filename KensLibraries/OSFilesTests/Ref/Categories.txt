@@ -1,0 +1,18 @@
+Category Table:
+
++----------------------------+--------------------------------------------+
+|[Drives](#drives)           |[File Manipulations](#file-manipulations)   |
++----------------------------+--------------------------------------------+
+|[Directories](#Directories) |[Low level functions](#low-level-functions) |
++----------------------------+--------------------------------------------+
+|[FileNames](#FileNames)     |[Other Functions](#other-functions)         |
++----------------------------+--------------------------------------------+
+
+
+
+Drives          File Manipulations
+Directories     Low-level file
+FileNames       Other
+
+
+

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="KenStyle.css" rel="stylesheet" type="text/css">
+  <title>KStrngs.js Library Test</title>
+  <script src="../kstrings.js"></script>
+</head>
+
+<body onload="TestCode()">
+
+<h1 style="text-align: center;">Testing KStrings.js Library</h1>
+
+<h3 class="subHead blue">String Methods:</h3>
+
+<table id="MethodTable" class="tbldata">
+    <tr>
+        <th class="name">Method</th>
+        <th>Test Notes</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td class="name">.IsWhite()</td>
+        <td id="IsWhite"></td>
+        <td id="IsWhiteStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">.RTrim()</td>
+        <td id="RTrim"></td>
+        <td id="RTrimStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.LTrim()</td>
+        <td id="LTrim"></td>
+        <td id="LTrimStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">.AllTrim()</td>
+        <td id="AllTrim"></td>
+        <td id="AllTrimStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.Substr()</td>
+        <td id="Substr"></td>
+        <td id="SubstrStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">.Left()</td>
+        <td id="Left"></td>
+        <td id="LeftStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.Right()</td>
+        <td id="Right"></td>
+        <td id="RightStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">.Has()</td>
+        <td id="Has"></td>
+        <td id="HasStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.StrAt()</td>
+        <td id="StrAt"></td>
+        <td id="StrAtStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.RtStrAt()</td>
+        <td id="RtStrAt"></td>
+        <td id="RtStrAtStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">.StrTran()</td>
+        <td id="StrTran"></td>
+        <td id="StrTranStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.Upper()</td>
+        <td id="Upper"></td>
+        <td id="UpperStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">.Lower()</td>
+        <td id="Lower"></td>
+        <td id="LowerStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.PadLeft()</td>
+        <td id="PadLeft"></td>
+        <td id="PadLeftStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">.makeLen()</td>
+        <td id="makeLen"></td>
+        <td id="makeLenStat"></td>
+    </tr>
+    <tr>
+        <td class="name">.deCode()</td>
+        <td id="deCode"></td>
+        <td id="deCodeStat"></td>
+    </tr>
+</table>
+
+ <h3 class="subHead blue">Gemeral Functions:</h3>
+
+<table id="FunctionTable" class="tbldata">
+    <tr>
+        <th class="name">Function</th>
+        <th>Test Notes</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td class="name">Empty()</td>
+        <td id="Empty"></td>
+        <td id="EmptyStat"></td>
+    </tr>
+    <tr class="altRow">
+        <td class="name">EmptyN()</td>
+        <td id="EmptyN"></td>
+        <td id="EmptyNStat"></td>
+    </tr>
+    <tr>
+        <td class="name">TrimAtSpace()</td>
+        <td id="TrimAtSpace"></td>
+        <td id="TrimAtSpaceStat"></td>
+    <tr class="altRow"altRow">
+        <td class="name">extrToken()</td>
+        <td id="extrToken"></td>
+        <td id="extrTokenStat"></td>
+    </tr>
+</table>
+
+<script>
+// idObj() - Return the object having the passed id
+function idObj(strID) {
+    return document.getElementById(strID)
+}
+
+function ShowNotes(cID, cDispText, bResult) {
+    var obj1, obj2;
+    obj1 = idObj(cID);
+    obj1.innerHTML = cDispText;
+
+    obj2 = idObj(cID + 'Stat');
+    if (bResult) {
+        obj2.innerHTML = 'OK';
+    } else {
+        obj2.innerHTML = 'Error!';
+    }
+}
+
+function TestCode() {
+    var cStr, Result, cText, Result2, cFrag, cRemain;
+
+    // String.IsWhite() - Return true if character at nPosn is whitespace
+    //      12345678
+    cStr = "Hello there!";
+    Result = cStr.IsWhite(6);
+    cText = cStr + ".IsWhite(6) yields: " + Result;
+    Result2 = cStr.IsWhite(5);
+    ShowNotes('IsWhite', cText, Result == true && Result2 == false)
+
+    // String.RTrim() - Remove trailing spaces in a string
+    cStr = "Hello there!   ";
+    Result = cStr.RTrim();
+    cText = '"Hello there.&nbsp;&nbsp;&nbsp;".RTrim() yields: "' + Result + '"';
+    ShowNotes('RTrim', cText, Result == "Hello there!")
+
+    // String.LTrim() - Remove leading spaces in a string
+    cStr = "   Hello there!";
+    Result = cStr.LTrim();
+    cText = '"&nbsp;&nbsp;&nbsp;Hello there.".LTrim() yields: "' + Result + '"';
+    ShowNotes('LTrim', cText, Result == "Hello there!")
+
+    // String.AllTrim() - Remove leading and trailing spaces in a string
+    cStr = "   Hello there!   ";
+    Result = cStr.AllTrim();
+    cText = '"&nbsp;&nbsp;&nbsp;Hello&nbsp;there.&nbsp;&nbsp;&nbsp;".AllTrim() yields: "' + Result + '"';
+    ShowNotes('AllTrim', cText, Result == "Hello there!")
+
+    // String.Substr() - Return a part of a string using VFP's normal notation
+    //               1
+    //      123456789012
+    cStr = "Hello there!";
+    Result = cStr.Substr(7,5);
+    cText = '"Hello&nbsp;there!".Substr(7,5) yields: "' + Result + '"';
+    ShowNotes('Substr', cText, Result == "there")
+
+    // String.Left() - Return the leftmost part of a string
+    cStr = "Hello there!";
+    Result = cStr.Left(5);
+    cText = '"Hello&nbsp;there!".Left(5) yields: "' + Result + '"';
+    ShowNotes('Left', cText, Result == "Hello")
+
+    // String.Right() - Return the rightmost part of a string
+    cStr = "Hello there!";
+    Result = cStr.Right(4);
+    cText = '"Hello&nbsp;there!".Right(4) yields: "' + Result + '"';
+    ShowNotes('Right', cText, Result == "ere!")
+
+    // String.Has() - Return true if the passed string is within our string
+    cStr = "ABCDEFGHIJKL";
+    Result = cStr.Has('CDE');
+    cText = '"ABCDEFGHIJKL".Has("CDE") yields: ' + Result;
+    ShowNotes('Has', cText, Result == true)
+
+    // String.StrAt() - Return the position of a string within a string
+    cStr = "ABCDEFGHIJKL";
+    Result = cStr.StrAt('CDE');
+    cText = '"ABCDEFGHIJKL".StrAt("CDE") yields: ' + Result;
+    ShowNotes('StrAt', cText, Result == 3)
+
+    // String.RtStrAt() - Return the rightmost position of a string within a string
+    //               1
+    //      123456789012
+    cStr = "ABCDEFGHIJKL";
+    Result = cStr.RtStrAt('HIJ');
+    cText = '"ABCDEFGHIJKL".RtStrAt("HIJ") yields: ' + Result;
+    ShowNotes('RtStrAt', cText, Result == 8)
+
+    // String.StrTran() - Replace all instances of sStr1 with sStr2 in this string
+    cStr = "AAABBBCCCDDDEEE";
+    Result = cStr.StrTran('B', 'J');
+    cText = '"ABCDEFGHIJKL".StrTran("B", "J") yields: "' + Result + '"';
+    ShowNotes('StrTran', cText, Result == 'AAAJJJCCCDDDEEE')
+
+    // String.Upper() - Convert a string to UPPERCASE
+    cStr = "Hello there!";
+    Result = cStr.Upper();
+    cText = '"Hello there!".Upper() yields: "' + Result + '"';
+    ShowNotes('Upper', cText, Result == 'HELLO THERE!')
+
+    // String.Lower() - Convert a string to lowercase
+    cStr = "Hello there!";
+    Result = cStr.Lower();
+    cText = '"Hello there!".Lower() yields: "' + Result + '"';
+    ShowNotes('Lower', cText, Result == 'hello there!')
+
+    // String.PadLeft() - Pad a string on the left to the desired length
+    //               1
+    //      123456789012
+    cStr = "Hello there!";
+    Result = cStr.PadLeft(15, "x");
+    cText = '"Hello there!".PadLeft(15, "x") yields: "' + Result + '"';
+    ShowNotes('PadLeft', cText, Result == 'xxxHello there!')
+
+    // String.makeLen() - Make a string the desired length
+    cStr = "Hello there!";
+    Result = cStr.makeLen(15, "x");
+    cText = '"Hello there!".makeLen(15, "x") yields: "' + Result +
+      '&nbsp;&nbsp;&nbsp;"';
+    ShowNotes('makeLen', cText, Result == 'Hello there!   ')
+
+    // String.deCode() - Decode the contents of a string
+    cStr = "+&amp;&apos;";
+    Result = cStr.deCode();
+    cText = "+&#38" + 'amp;&#38' + "apos;" + '".deCode() yields: "' +
+      Result + '"';
+    ShowNotes('deCode', cText, Result == ' &' + "'");
+
+    //      Gemeral Functions
+    // Empty() - Return true if the passed string is empty
+    cStr = "  ";
+    Result = Empty();
+    cText = 'Empty("&nbsp;&nbsp;&nbsp;") yields: ' + Result;
+    ShowNotes('Empty', cText, Result == true)
+
+    // EmptyN() - Return true if the passed string varible = "0"
+    cStr = "0";
+    Result = EmptyN();
+    cText = 'EmptyN("0") yields: ' + Result;
+    ShowNotes('EmptyN', cText, Result == true)
+
+    // TrimAtSpace() - Return a string variable up to the first space
+    cStr = "Hello there!";
+    Result = TrimAtSpace(cStr);
+    cText = 'TrimAtSpace("Hello there!") yields: ' + Result;
+    ShowNotes('TrimAtSpace', cText, Result == "Hello ");
+
+    // extrToken() - Extract and return parts of a string around a token
+    cStr = "I'm Done.";
+    Result = extrToken(cStr, ' ');
+    cFrag   = Result.fragment
+    cRemain = Result.remainder
+    cText = 'extrToken("I' + "'" + 'm Done.", " ") yields: ' + '"'
+      + cFrag + '", Remainder: "' + cRemain + '"';
+    ShowNotes('extrToken', cText, cFrag == "I'm" && cRemain == "Done.");
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+                          Testing KStrings.prg Library
+
+Get Information Section:
+------------------------
+ 1. AllDigits() is OK!
+ 2. AnyDigits() is OK!
+ 3. AllCAPS() is OK!
+ 4. IsNumber() is OK!
+ 5. AtNotInDelim() is OK!
+ 6. AtNotInParen() is OK!
+ 7. FldsInExpr() is OK!
+ 8. FirstAt() is OK!
+ 9. FirstCap() is OK!
+10. Get1stPosn() is OK!
+11. GetArg() is OK!
+12. GetArgValue() is OK!
+13. GetArticle() is OK!
+14. GetInitials() is OK!
+15. GetEndingDigits() is OK!
+16. HasLowerCase() is OK!
+17. HasUpperCase() is OK!
+
+Extract String Parts:
+---------------------
+18. GetEmailDomain() is OK!
+19. ExtrNumber() is OK!
+20. EvalLogicExpr() is OK!
+21. ExtrClauseArg() is OK!
+22. ExtrFldName() is OK!
+23. ExtrLine() is OK!
+24. ExtrLineWithText() is OK!
+25. IsQuoted() is OK!
+26. ExtrQuoted() is OK!
+27. ExtrToken() is OK!
+28. ExtrVarValue() is OK!
+29. GetVarValue() is OK!
+30. SplitPosition() is OK!
+31. SplitString() is OK!
+32. CleanString() is OK!
+33. GetNextWord() is OK!
+34. GetLastWord() is OK!
+35. ExtractWords() is OK!
+
+Modify the String:
+------------------
+36. CheckStrValues() is OK!
+37. SetTextLeftMargin() is OK!
+38. NormalizeNumber() is OK!
+39. ClearPunct() is OK!
+40. ClearEndPunct() is OK!
+41. AddQuotes2Text() is OK!
+42. CleanMemo() is OK!
+43. FormatPhone() is OK!
+44. FlushLeft() is OK!
+45. FlushRight() is OK!
+46. FlushRZero() is OK!
+47. ListMemo() is OK!
+48. MakeLen() is OK!
+49. MakeProper() is OK!
+50. ForceProper() is OK!
+51. ExtrQuotes() is OK!
+52. Plural() is OK!
+53. CountPlural() is OK!
+54. ExtrPlural() is OK!
+55. StrToHTML() is OK!
+56. CharsToHTML() is OK!
+57. WebTrim() is OK!
+58. PostTrim() is OK!
+59. PostTrim() is OK!
+60. StripChrs() is OK!
+61. WordWrapString() is OK!
+62. SwapPhrase() is OK!
+63. CreateSpecialKey() is OK! - New key is: P$TOrJ$j1*xC2NouRRA)!21hG1vbSr
+
+Output Formatting:
+------------------
+64. Format() is OK!
+65. DateFormat() is OK!
+66. NumericFormat() is OK!
+67. LogicalFormat() is OK!
+
+VFP Code Formatting:
+--------------------
+68. Comm2Code() is OK!
+69. FormatCode() is OK!
+
+Encoding/Encrypting:
+--------------------
+70. EncryptIt() is OK!
+71. DecryptIt() is OK!
+72. EncodeURL() is OK!
+73. DecodeURL() is OK!
+74. Base64Encode() is OK!
+75. Base64Decode() is OK!
+
+PICTURE Methods:
+----------------
+76. ClearPict() is OK!
+77. GetPicChrs() is OK!
+78. TrimPict() is OK!
+79. RemoveOddHexChars() is OK!
+
+Type Conversions:
+-----------------
+80. CharToX() is OK!
+81. XToChar() is OK!
+82. EscapeXML() is OK!
+83. GetDurationStr() is OK!
+84. RoundOff() is OK!
+85. RoundUp() is OK!
+
+String Incrementing:
+--------------------
+86. IncrNumbPart() is OK!
+87. IncrNumeric() is OK!
+88. IncrAlpha() is OK!
+89. IncrFLStr() is OK!
+90. IncrFRStr() is OK!
+
+Multiple Option Strings:
+------------------------
+91. GetNextOption() is OK!
+
+Combining Strings:
+------------------
+92. SetCityStateZip() is OK!
+93. AddToString() is OK!
+
+Done! All tests have been completed successfully.

@@ -1,0 +1,41 @@
+                          Testing KArrays.prg Library
+
+
+Object Tests:
+-------------
+ArrayObj.Init() is OK!
+ArrayObj.IsEmpty() is OK!
+ArrayObj.AddRow() is OK!
+ArrayObj.InsertRow() is OK!
+ArrayObj.InsertRow() is OK!
+ArrayObj.DeleteRow() is OK!
+ArrayObj.DeleteRemainingRows() is OK!
+ArrayObj.InsertCols() is OK!
+ArrayObj.DeleteCol() is OK!
+ArrayObj.Sort() is OK!
+ArrayObj.MultiColSort() is OK!
+ArrayObj.Locate() is OK!
+ArrayObj.Seek() is OK!
+ArrayObj.PrintToFile() is OK!
+ArrayObj.PrintToString() is OK!
+ArrayObj.PrintToFileExtended() is OK!
+ArrayObj.Print() - Test Start:
+ArrayObj's aRA[] contents - 3 rows, 5 columns:
+      1-  2-  -3--  ----4----  5  
+   1: 07  04  2025  CHRISTMAS     
+   2: 06  06  2020  Johnny        
+   3: 12  25  2024  new year      
+
+ArrayObj.Print() - Test End; judge for yourself.
+ArrayObj.ZapArray() is OK!
+oRATest.Release(); which also calls oRATest.Destroy():
+ArrayObj.Release() is OK!
+
+Function Tests:
+---------------
+Split(A,B,C):
+    Split() Function is OK!
+SplitCSV(A,"Him,Her",C):
+    SplitCSV() Function is OK!
+
+Done! All tests have been completed successfully.

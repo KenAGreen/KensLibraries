@@ -1,0 +1,69 @@
+                          Testing KOSFiles.prg Library
+
+Drives:
+-------
+ 1. IsDrive() is OK!
+ 2. GetDriveFreeSpace() is OK!
+ 3. JustDrive() is OK!
+
+Directories:
+------------
+ 4. DirInfo() is OK!
+ 5. DirListOnly() is OK!
+ 6. AnyFiles() is OK!
+ 7. FileList() is OK!
+ 8. CheckLastSep() is OK!
+ 9. CheckDirSep() is OK!
+10. LastDirPosn() is OK!
+11. GetLatestFile() is OK!
+12. GetPath() is OK!
+13. FullPath() is OK!
+14. MinPath() is OK!
+15. IsADir() is OK!
+16. MakeDir() is OK!
+17. MakeAllDirs() is OK!
+18. RemDir() is OK!
+19. ZapDir() is OK!
+20. IncrDirName() is OK!
+21. UniqueDirName() is OK!
+
+FileNames:
+----------
+22. UniqueTempName() is OK!
+23. JustPath() is OK!
+24. JustFile() is OK!
+25. JustFName() is OK!
+26. JustFExt() is OK!
+27. IncrFName() is OK!
+28. IncrFName0() is OK!
+29. IncrFExt() is OK!
+
+File Manipulations:
+-------------------
+30. GetFileDescription() is OK!
+31. FindFirstFile() is OK!
+32. FindNextFile() is OK!
+33. IsAFile() is OK!
+34. FileSize() is OK!
+35. FileDate() is OK!
+36. FileTime() is OK!
+37. FileAttr() is OK!
+38. SetFileAttrs() is OK!
+39. CopyFile() is OK!
+40. CopyAllFiles() is OK!
+41. MoveFile() is OK!
+42. RenameFile() is OK!
+43. DeleteFile() is OK!
+44. DeleteAllFiles() is OK!
+
+Low-level file functions:
+-------------------------
+45. LL_Open() is OK!
+46. LL_Read() is OK!
+47. LL_Write() is OK!
+48. LL_Flush() is OK!
+49. LL_Close() is OK!
+50. LL_ToBOF() is OK!
+51. LL_ToEOF() is OK!
+
+Done! All tests have been completed successfully.
