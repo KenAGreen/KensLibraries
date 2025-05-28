@@ -108,7 +108,7 @@ ShowResult(cFunc, bIsGood)
 *                        D            Directory
 cFunc = 'DirInfo()'
 bIsGood = .F.
-oValue = goFiles.DirInfo('.\Ref')
+oValue = goFiles.DirInfo('.\Notes')
 DO CASE
 CASE NOT (oValue.nRows = 2 AND oValue.aRA[1,1] = 'CATEGORIES.TXT')
     ? cFunc + ' oValue.nRows were ' + TRANSFORM(oValue.nRows) + ;
@@ -151,7 +151,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: .T. If any files exist that match the spec
 cFunc = 'AnyFiles()'
 bIsGood = .F.
-bValue = goFiles.AnyFiles('Ref\*.*')
+bValue = goFiles.AnyFiles('Notes\*.*')
 DO CASE
 CASE NOT bValue
     ? cFunc + ' bValue = .F. (e.g. No Files)'
@@ -167,7 +167,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: List of files as file1,file2,...
 cFunc = 'FileList()'
 bIsGood = .F.
-cValue = goFiles.FileList('Ref', '*.*')
+cValue = goFiles.FileList('Notes', '*.*')
 DO CASE
 CASE NOT cValue == 'CATEGORIES.TXT,KOSFILES.TXT'
     ? cFunc + ' cValue has these files: |' + cValue + '|'
@@ -192,12 +192,13 @@ ShowResult('CheckDirSep()', .T.)     && Already tested above
 *     Retn: Position of last directory separator: \ or :
 cFunc = 'LastDirPosn()'
 bIsGood = .F.
-*                 1         2
-*        123456789012345678901234
-cStr = gcTestDir + 'Ref'
+*                 1         2         3      v
+*        1234567890123456789012345678901234567890
+*        F:\GITDEV\KENSLIBRARIES\OSFILESTESTS\Notes
+cStr = gcTestDir + 'Notes'
 nValue = goFiles.LastDirPosn(cStr)
 DO CASE
-CASE NOT nValue == 21
+CASE NOT nValue == 37
     ? cFunc + ' nValue was ' + TRANSFORM(nValue)
 OTHERWISE
     bIsGood = .T.
@@ -217,10 +218,10 @@ ShowResult(cFunc, bIsGood)
 *          order.
 cFunc = 'GetLatestFile()'
 bIsGood = .F.
-cStr = gcTestDir + 'Ref\*.txt'
+cStr = gcTestDir + 'Notes\*.txt'
 cValue = goFiles.GetLatestFile(cStr)
 DO CASE
-CASE NOT cValue == gcTestDir + 'Ref\KOSFILES.TXT'
+CASE NOT cValue == gcTestDir + 'Notes\KOSFILES.TXT'
     ? cFunc + ' cValue was ' + cValue
 OTHERWISE
     bIsGood = .T.
@@ -232,10 +233,10 @@ ShowResult(cFunc, bIsGood)
 *     Retn: The path from the filename (e.g. "\ALI\Abc.fxp" --> '\ALI')
 cFunc = 'GetPath()'
 bIsGood = .F.
-cStr = gcTestDir + 'Ref\KOSFiles.txt'
+cStr = gcTestDir + 'Notes\KOSFiles.txt'
 cValue = goFiles.GetPath(cStr)
 DO CASE
-CASE NOT cValue == gcTestDir + 'Ref'
+CASE NOT cValue == gcTestDir + 'Notes'
     ? cFunc + ' cValue was ' + cValue
 OTHERWISE
     bIsGood = .T.
@@ -420,10 +421,10 @@ ShowResult(cFunc, bIsGood)
 *     Retn: Only the drive and directory part of cPathSpec
 cFunc = 'JustPath()'
 bIsGood = .F.
-cFile = gcTestDir + 'Ref\KOSFiles.txt'
+cFile = gcTestDir + 'Notes\KOSFiles.txt'
 cPath = goFiles.JustPath(cFile)
 DO CASE
-CASE NOT cPath = gcTestDir + 'Ref'
+CASE NOT cPath = gcTestDir + 'Notes'
     ? cFunc + ' Path was ' + cPath
 OTHERWISE
     bIsGood = .T.
@@ -449,9 +450,6 @@ ShowResult(cFunc, bIsGood)
 *     Retn: Only the file name (no ext) part of cFileSpec
 cFunc = 'JustFName()'
 bIsGood = .F.
-
-set step on
-
 cFileName = goFiles.JustFName(cFile)
 DO CASE
 CASE NOT cFileName = 'KOSFiles'
@@ -546,7 +544,7 @@ ShowResult(cFunc, bIsGood)
 *            .bFound - .T. if file found
 cFunc = 'GetFileDescription()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 oFile = goFiles.GetFileDescription(cStr)
 DO CASE
 CASE NOT (oFile.cFileName = 'CATEGORIES.TXT' AND oFile.nSize = 661 ;
@@ -566,7 +564,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: File description object, see GetFileDescription()
 cFunc = 'FindFirstFile()'
 bIsGood = .F.
-cStr = 'Ref\*.txt'
+cStr = 'Notes\*.txt'
 oFile = goFiles.FindFirstFile(cStr)
 DO CASE
 CASE NOT oFile.cFileName == 'CATEGORIES.TXT'
@@ -581,7 +579,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: File description object, see GetFileDescription()
 cFunc = 'FindNextFile()'
 bIsGood = .F.
-cStr = 'Ref\*.txt'
+cStr = 'Notes\*.txt'
 oFile = goFiles.FindNextFile(cStr)
 DO CASE
 CASE NOT oFile.cFileName == 'KOSFILES.TXT'
@@ -603,7 +601,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: .T. if cFileName is a file, else .F.
 cFunc = 'IsAFile()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 bValue = goFiles.IsAFile(cStr)
 DO CASE
 CASE NOT bValue
@@ -618,7 +616,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: File Size (N)
 cFunc = 'FileSize()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 nValue = goFiles.FileSize(cStr)
 DO CASE
 CASE NOT nValue == 661
@@ -633,7 +631,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: File Date (D)
 cFunc = 'FileDate()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 dValue = goFiles.FileDate(cStr)
 DO CASE
 CASE NOT dValue == {5/20/2025}
@@ -648,7 +646,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: File Time (C>
 cFunc = 'FileTime()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 cValue = goFiles.FileTime(cStr)
 DO CASE
 CASE NOT cValue == '10:25:24'
@@ -663,7 +661,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: Attributes (C)
 cFunc = 'FileAttr()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 cValue = goFiles.FileAttr(cStr)
 DO CASE
 CASE NOT cValue == 'A'
@@ -679,7 +677,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: .T. if set properly
 cFunc = 'SetFileAttrs()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 cValue = goFiles.SetFileAttrs(cStr, 'RA')
 cValue = goFiles.FileAttr(cStr)
 DO CASE
@@ -699,15 +697,15 @@ ShowResult(cFunc, bIsGood)
 *     Retn: .T. if copy succeeded, else .F.
 cFunc = 'CopyFile()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
-cDest = 'Ref\CrappyCopy.txt'
+cStr = 'Notes\Categories.txt'
+cDest = 'Notes\CrappyCopy.txt'
 bValue = goFiles.CopyFile(cStr, cDest, .F., .T.)
 DO CASE
 CASE NOT (bValue AND FILE(cDest))
     ? cFunc + ' File copy NOT successful.'
 OTHERWISE
     bIsGood = .T.
-    ERASE Ref\CrappyCopy.txt
+    ERASE Notes\CrappyCopy.txt
 ENDCASE
 ShowResult(cFunc, bIsGood)
 
@@ -717,7 +715,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: Number of files copied (0 if none)
 cFunc = 'CopyAllFiles()'
 bIsGood = .F.
-cStr = 'Ref\*.txt'
+cStr = 'Notes\*.txt'
 MD Junk
 cDest = 'Junk'
 nValue = goFiles.CopyAllFiles(cStr, cDest)
@@ -741,7 +739,7 @@ ShowResult(cFunc, bIsGood)
 cFunc = 'MoveFile()'
 bIsGood = .F.
 cStr = gcMainDir + 'README.md'
-cDest = gcTestDir + 'Ref'
+cDest = gcTestDir + 'Notes'
 bValue = goFiles.MoveFile(cStr, cDest)
 bGotFile = FILE(cDest + '\README.md')
 DO CASE
@@ -760,17 +758,17 @@ ShowResult(cFunc, bIsGood)
 *     Retn: .T. if file renamed (.F. if not)
 cFunc = 'RenameFile()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
-cDest = 'Ref\CrappyCopy.txt'
-goFiles.CopyFile('Ref\Categories.txt', cDest, .F., .T.)
+cStr = 'Notes\Categories.txt'
+cDest = 'Notes\CrappyCopy.txt'
+goFiles.CopyFile('Notes\Categories.txt', cDest, .F., .T.)
 bValue = goFiles.RenameFile(cDest, 'GreatCopy.txt')
-bGotFile = FILE('Ref\GreatCopy.txt')
+bGotFile = FILE('Notes\GreatCopy.txt')
 DO CASE
 CASE NOT bGotFile
     ? cFunc + ' GreatCopy.txt was not found'
 OTHERWISE
     bIsGood = .T.
-    ERASE Ref\GreatCopy.txt
+    ERASE Notes\GreatCopy.txt
 ENDCASE
 ShowResult(cFunc, bIsGood)
 
@@ -779,9 +777,9 @@ ShowResult(cFunc, bIsGood)
 *     Retn: .T. if file deleted (.F. if not)
 cFunc = 'DeleteFile()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
-cDest = 'Ref\CrappyCopy.txt'
-goFiles.CopyFile('Ref\Categories.txt', cDest, .F., .T.)
+cStr = 'Notes\Categories.txt'
+cDest = 'Notes\CrappyCopy.txt'
+goFiles.CopyFile('Notes\Categories.txt', cDest, .F., .T.)
 bValue = goFiles.DeleteFile(cDest)
 bGotFile = FILE(cDest)
 DO CASE
@@ -797,7 +795,7 @@ ShowResult(cFunc, bIsGood)
 *     Retn: Number of files deleted (0 if none)
 cFunc = 'DeleteAllFiles()'
 bIsGood = .F.
-cStr = 'Ref\*.txt'
+cStr = 'Notes\*.txt'
 MD Junk
 cDest = 'Junk'
 goFiles.CopyAllFiles(cStr, cDest)
@@ -823,7 +821,7 @@ ShowResult(cFunc, bIsGood)
 *           The error handler is called if open fails
 cFunc = 'LL_Open()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 nHandle = goFiles.LL_Open(cStr, 'W')
 DO CASE
 CASE nHandle = -1
@@ -842,7 +840,7 @@ ShowResult(cFunc, bIsGood)
 *           The error handler is called if handle is invalid
 cFunc = 'LL_Read()'
 bIsGood = .F.
-cStr = 'Ref\Categories.txt'
+cStr = 'Notes\Categories.txt'
 nHandle = goFiles.LL_Open(cStr, 'W')
 cText = goFiles.LL_Read(nHandle, .T.)
 DO CASE
@@ -863,7 +861,7 @@ ShowResult(cFunc, bIsGood)
 *             handle is invalid.
 cFunc = 'LL_Write()'
 bIsGood = .F.
-cStr = 'Ref\Junk.txt'
+cStr = 'Notes\Junk.txt'
 nHandle = goFiles.LL_Open(cStr, 'W')
 cText = 'This is just junk.'
 bValue = goFiles.LL_Write(nHandle, cText)
@@ -884,7 +882,7 @@ ShowResult(cFunc, bIsGood)
 *    Retn: .T. and file Flushed.
 cFunc = 'LL_Flush()'
 bIsGood = .F.
-cStr = 'Ref\Junk.txt'
+cStr = 'Notes\Junk.txt'
 nHandle = goFiles.LL_Open(cStr, 'W')
 cText = 'This is just junk.'
 goFiles.LL_Write(nHandle, cText)
@@ -905,7 +903,7 @@ ShowResult(cFunc, bIsGood)
 *           Error handler called if close fails.
 cFunc = 'LL_Close()'
 bIsGood = .F.
-cStr = 'Ref\Junk.txt'
+cStr = 'Notes\Junk.txt'
 nHandle = goFiles.LL_Open(cStr, 'W')
 cText = 'This is just junk.'
 goFiles.LL_Write(nHandle, cText)
@@ -925,7 +923,7 @@ ShowResult(cFunc, bIsGood)
 *           The error handler is called if handle is invalid
 cFunc = 'LL_ToBOF()'
 bIsGood = .F.
-cStr = 'Ref\Junk.txt'
+cStr = 'Notes\Junk.txt'
 nHandle = goFiles.LL_Open(cStr, 'W')
 cText = 'This is just junk.'
 goFiles.LL_Write(nHandle, cText)
@@ -947,7 +945,7 @@ ShowResult(cFunc, bIsGood)
 *           The error handler is called if handle is invalid
 cFunc = 'LL_ToEOF()'
 bIsGood = .F.
-cStr = 'Ref\Junk.txt'
+cStr = 'Notes\Junk.txt'
 nHandle = goFiles.LL_Open(cStr, 'W')
 cText = 'This is just junk.'
 goFiles.LL_Write(nHandle, cText)
