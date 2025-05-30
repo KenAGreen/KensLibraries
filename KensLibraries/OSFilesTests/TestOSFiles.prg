@@ -192,13 +192,13 @@ ShowResult('CheckDirSep()', .T.)     && Already tested above
 *     Retn: Position of last directory separator: \ or :
 cFunc = 'LastDirPosn()'
 bIsGood = .F.
-*                 1         2         3      v
-*        1234567890123456789012345678901234567890
-*        F:\GITDEV\KENSLIBRARIES\OSFILESTESTS\Notes
-cStr = gcTestDir + 'Notes'
+*                 1  v
+*        123456789012345678
+*        OSFILESTESTS\Notes
+cStr = STRTRAN(gcTestDir + 'Notes', gcMainDir, '')
 nValue = goFiles.LastDirPosn(cStr)
 DO CASE
-CASE NOT nValue == 37
+CASE NOT nValue == 13
     ? cFunc + ' nValue was ' + TRANSFORM(nValue)
 OTHERWISE
     bIsGood = .T.
