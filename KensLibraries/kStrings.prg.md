@@ -179,10 +179,10 @@ There are 5 incrementing methods.  They all take an input string as the starting
 ```
 
 ### Test Program
-The test program is at: [TestStrings.prg](file:///StringTests/TestStrings.prg).
+The test program is at: [TestStrings.prg](./StringTests/TestStrings.prg).
 <br>
 
-See also the notes on [Hungarian Notation](file:///./HungarianNotation.md).
+See also the notes on [Hungarian Notation](./HungarianNotation.md).
 <br>
 
 <font size="2"><center>

@@ -95,9 +95,9 @@ These other objects are all child classes of ArrayObj.
     *- GetLeftMargin() - Return the current left margin of the text
 ```
 ### Test Program:
-The test Program is at: [TestArrays.prg](file:///ArrayTests/TestArrays.prg).
+The test Program is at: [TestArrays.prg](./ArrayTests/TestArrays.prg).
 
-See also the notes on [Hungarian Notation](file:///./HungarianNotation.md).
+See also the notes on [Hungarian Notation](./HungarianNotation.md).
 
 <font size="2"><center>
 by Ken Green - [AdvanceDataSystems.biz](http://AdvanceDataSystems.biz), May 2025

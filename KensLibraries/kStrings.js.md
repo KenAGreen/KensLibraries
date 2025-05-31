@@ -54,7 +54,7 @@ I've found this capability lets me code JS faster and more reliably :grin:. Of c
 ```
 
 ## Test Program
-The test program is at: [TestJSStrings.htm](file:///StringTests/TestJSStrings.htm) starting at line 155.
+The test program is at: [TestJSStrings.htm](./StringTests/TestJSStrings.htm) starting at line 155.
 
 <br>
 

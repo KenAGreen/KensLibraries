@@ -29,7 +29,7 @@ oMyArray.AddRow('A', 456, .F., 8.500)
 
 Adding a column on the fly can cause a great mess with VFP; Karrays.prg handles that properly.
 
-See the full list in [KArrays.prg](file:///KArrays.prg.md).
+See the more info in [KArrays.prg.md](./KArrays.prg.md).
 
 ### String Methods
 
@@ -41,7 +41,7 @@ cNewStr = goStr.MakeLen(cOldStr, 25)
 This is a very large collection of string manipulations. Create incrementing ID values using base 36 characters (A-Z,0-9); 4 characters yields 17 million possibilities.
 You can easily extract parts of a string, do type conversions, or format code blocks. There are encryption/decryption functions. FirstAt() gets the first instance of multiple strings, and there are many HTML manipulations to boot. Yet this is only scratching the surface.
 
-There are so many methods that they've been categorized in [KStrings.prg](file:///KStrings.prg.md).
+There are so many methods that they've been categorized in [KStrings.prg.md](./KStrings.prg.md).
 
 ### File System Methods
 
@@ -52,22 +52,22 @@ cNewStr = goFiles.AnyFiles(cDir)
 
 This has a bunch of operating system file manipulations. And, while VFP has a mini-language for low-level file handling, the bottom of the class has obvious names and sometimes simpler ways of doing things with low-level files.
 
-These methods are also categorized in [KOSFiles.prg](file:///KOSFiles.prg.md).
+These methods are also categorized in [KOSFiles.prg.md](./KOSFiles.prg.md).
 
 ### Other Languages
 
 If function objects are useful in FoxPro, wouldn't they also be useful in other languages? Here are two other libraries that will illustrate the point:
 
 ## Javascript
-Web site development requires, for me, heavy FoxPro use (1-based strings) and heavy **Javascript** use (0-based strings). Having inherited addling genes, bouncing back and forth between the two gets confusing. And, unlike FoxPro, Javascript has string objects. So, this library, [KStrings.js](file:///KStrings.js.md) has many string methods that use similar FoxPro names but converts strings using 1-based addressing. There are also some other functions that are used for anything else.
+Web site development requires, for me, heavy FoxPro use (1-based strings) and heavy **Javascript** use (0-based strings). Having inherited addling genes, bouncing back and forth between the two gets confusing. And, unlike FoxPro, Javascript has string objects. So, this library, shown in [KStrings.js.md](./KStrings.js.md) has many string methods that use familiar FoxPro names but converts strings using 1-based addressing. There are also some other functions that are used for anything else.
 
 ## Go Language
 
 In 2014 a client wanted to send emails very quickly (for business use; not a spammer). This seemed appropriate for a low-level language. I'd been interested in Google's **Go** language and learned that it was very fast, much safer than **C** or **C++**, and had some unique capabilities such as functions can return **two** values.  Go also encourages Test-Driven Development (TDD): it makes it easy to write unit tests as you're creating a library.
 
-Needing file management for attachment handling, I adopted some of the KOSFiles methods in my Go program. See [OSFiles.go](file:///OSFiles.go) for that abbreviated library.
+Needing file management for attachment handling, I adopted some of the KOSFiles methods in my Go program. See [OSFiles.go](./OSFiles.go) for that abbreviated library.
 
-Test Program: [OSFiles_test.go](file:///OSFilesTests/OSFiles_test.go).
+Test Program: [OSFiles_test.go](./OSFilesTests/OSFiles_test.go).
 
 Here are its methods:
 ```go
@@ -79,7 +79,7 @@ Here are its methods:
 //  DeleteFile(cFullNm string) - Delete a file
 ```
 
-See also the notes on [Hungarian Notation](file:///HungarianNotation.md).
+See also the notes on [Hungarian Notation](./HungarianNotation.md).
 <br>
 
 <font size="2"><center>

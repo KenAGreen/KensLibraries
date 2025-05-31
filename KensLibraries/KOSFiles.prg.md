@@ -102,9 +102,9 @@ Below are the methods for each category; see KOSFiles.prg for the syntax details
 ```
 
 ### Test Program:
-The test Program is at: [TestOSFiles.prg](file:///OSFilesTests/TestOSFiles.prg).
+The test Program is at: [TestOSFiles.prg](./OSFilesTests/TestOSFiles.prg).
 
-See also the notes on [Hungarian Notation](file:///./HungarianNotation.md).
+See also the notes on [Hungarian Notation](././HungarianNotation.md).
 <br>
 
 <font size="2"><center>
